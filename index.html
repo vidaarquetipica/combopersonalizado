@@ -16,7 +16,7 @@
       --accent-soft: rgba(184,134,74,.12);
       --accent2: #a85c32;
       --accent2-soft: rgba(168,92,50,.12);
-      --border: rgba(45,27,46,.08);
+      --border: rgba(45,27,46,.12);
     }
 
     body {
@@ -36,11 +36,6 @@
       transform: translateY(20px);
       animation: fadeUp .6s ease forwards;
     }
-    .reveal:nth-child(2) { animation-delay: .1s; }
-    .reveal:nth-child(3) { animation-delay: .2s; }
-    .reveal:nth-child(4) { animation-delay: .3s; }
-    .reveal:nth-child(5) { animation-delay: .4s; }
-    .reveal:nth-child(6) { animation-delay: .5s; }
 
     @keyframes fadeUp {
       to {
@@ -63,6 +58,7 @@
       background: linear-gradient(135deg, #3a2438, #2d1b2e);
       color: #e8d5b7;
       border: 1px solid var(--accent);
+      cursor: pointer;
     }
     .cta-btn:hover {
       transform: translateY(-2px);
@@ -119,6 +115,22 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(184,134,74,0.15);
+    }
   </style>
 </head>
 <body class="body-font">
@@ -160,7 +172,7 @@
         <p class="text-sm font-semibold mt-1" style="color:var(--text);">ou 12x R$ 7,23</p>
       </div>
       
-      <a href="https://pay.kiwify.com.br/oStCXUc" target="_blank" class="cta-btn inline-block w-full sm:w-auto text-center" style="padding:16px 36px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.03em;">
+      <a href="#formulario-dados" class="cta-btn inline-block w-full sm:w-auto text-center" style="padding:16px 36px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.03em;">
         QUERO MEU COMBO ARQUETÍPICO
       </a>
       <p class="text-xs sm:text-sm mt-3" style="color:var(--muted);">Pagamento 100% seguro</p>
@@ -267,7 +279,7 @@
         <div class="rounded-xl p-5 sm:p-6 text-center" style="background:var(--card);border:1px solid var(--border);">
           <div class="title-font mb-2" style="font-size:42px;color:var(--accent);font-weight:700;line-height:1;">01</div>
           <p class="font-bold text-base sm:text-lg mb-2" style="color:var(--text);">Confirmação</p>
-          <p class="text-sm sm:text-base" style="color:var(--muted);line-height:1.65;">Após sua confirmação você recebe uma mensagem para me contar um pouco sobre você e qual é o seu principal objetivo.</p>
+          <p class="text-sm sm:text-base" style="color:var(--muted);line-height:1.65;">Você preenche seus dados abaixo e confirma para podermos personalizar seu direcionamento.</p>
         </div>
 
         <div class="rounded-xl p-5 sm:p-6 text-center" style="background:var(--card);border:1px solid var(--border);">
@@ -284,7 +296,7 @@
       <span style="font-size:10px;">✦ ✦ ✦</span>
     </div>
 
-    <!-- IMAGEM COMBO PNG (SUBSTITUIU 'O QUE VOCÊ RECEBE' ATÉ 'SEU MOMENTO MUDOU?') -->
+    <!-- IMAGEM COMBO PNG -->
     <div class="reveal mb-12 sm:mb-16 text-center max-w-3xl mx-auto px-2">
       <img src="combo.jpeg" 
            alt="Combo Arquetípico - O que você recebe" 
@@ -292,19 +304,60 @@
            loading="lazy">
     </div>
 
-    <!-- FINAL CTA SECTION -->
-    <div class="reveal text-center my-12 sm:my-16">
+    <!-- FORMULÁRIO + FINAL CTA SECTION -->
+    <div id="formulario-dados" class="reveal text-center my-12 sm:my-16 max-w-xl mx-auto px-2">
       <div class="mb-6">
         <p class="title-font text-3xl sm:text-4xl font-bold mb-2" style="color:var(--text);">Pronta para ativar a sua melhor versão?</p>
-        <p class="text-sm sm:text-base" style="color:var(--muted);">Garanta seu Combo Arquetípico Personalizado agora por apenas</p>
-        <p class="title-font text-4xl sm:text-5xl font-bold mt-2" style="color:var(--accent);">
-          R$ 69,90 <span class="text-lg sm:text-2xl font-normal" style="color:var(--text);">ou 12x R$ 7,23</span>
-        </p>
+        <p class="text-sm sm:text-base mb-2" style="color:var(--muted);">Preencha os dados abaixo para o seu direcionamento personalizado:</p>
       </div>
-      <a href="https://pay.kiwify.com.br/oStCXUc" target="_blank" class="cta-btn inline-block w-full sm:w-auto text-center" style="padding:18px 42px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;letter-spacing:.03em;">
-        QUERO MEU COMBO ARQUETÍPICO
-      </a>
-      <p class="text-xs sm:text-sm mt-3" style="color:var(--muted);">Pagamento 100% seguro</p>
+
+      <!-- FORMULÁRIO DE CAPTURA COM A SUA CHAVE -->
+      <form action="https://api.web3forms.com/submit" method="POST" class="text-left rounded-2xl p-6 sm:p-8 mb-6" style="background:var(--card);border:1px solid var(--accent);box-shadow:0 10px 30px rgba(184,134,74,.08);">
+        
+        <!-- Chave Web3Forms configurada -->
+        <input type="hidden" name="access_key" value="376491cc-5203-40bf-af8e-da68f6b19645">
+        
+        <!-- Redirecionamento automático para a Kiwify após enviar -->
+        <input type="hidden" name="redirect" value="https://pay.kiwify.com.br/oStCXUc">
+        
+        <!-- Assunto do e-mail que você vai receber -->
+        <input type="hidden" name="subject" value="Novo Pedido - Combo Arquetípico">
+
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Nome Completo *</label>
+          <input type="text" name="Nome Completo" required placeholder="Digite seu nome completo" class="form-input">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Data de Nascimento *</label>
+            <input type="text" name="Data de Nascimento" required placeholder="DD/MM/AAAA" class="form-input">
+          </div>
+          <div>
+            <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Horário de Nascimento</label>
+            <input type="text" name="Horário de Nascimento" placeholder="Ex: 14:30 (se souber)" class="form-input">
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Qual o seu principal objetivo atual? *</label>
+          <textarea name="Objetivo" required rows="3" placeholder="Ex: Aumentar minhas vendas, ter mais autoconfiança no trabalho..." class="form-input"></textarea>
+        </div>
+
+        <div class="text-center mb-6">
+          <p class="text-xs sm:text-sm" style="color:var(--muted);">Garanta seu Combo Arquetípico Personalizado agora por apenas</p>
+          <p class="title-font text-3xl sm:text-4xl font-bold mt-1" style="color:var(--accent);">
+            R$ 69,90 <span class="text-base sm:text-xl font-normal" style="color:var(--text);">ou 12x R$ 7,23</span>
+          </p>
+        </div>
+
+        <button type="submit" class="cta-btn w-full text-center py-4 px-6 rounded-lg font-bold text-base tracking-wide">
+          CONFIRMAR E IR PARA O PAGAMENTO
+        </button>
+        
+        <p class="text-xs text-center mt-3" style="color:var(--muted);">🔒 Seus dados estão seguros. Ao clicar, você será redirecionado para o checkout seguro.</p>
+      </form>
+
     </div>
 
   </div>
