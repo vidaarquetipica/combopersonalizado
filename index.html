@@ -17,16 +17,6 @@
       --accent2: #a85c32;
       --accent2-soft: rgba(168,92,50,.12);
       --border: rgba(45,27,46,.08);
-      
-      /* Cores dos Elementos */
-      --fogo: #c85a32;
-      --fogo-bg: rgba(200, 90, 50, 0.08);
-      --terra: #5b7042;
-      --terra-bg: rgba(91, 112, 66, 0.08);
-      --ar: #4a7c85;
-      --ar-bg: rgba(74, 124, 133, 0.08);
-      --agua: #3b6285;
-      --agua-bg: rgba(59, 98, 133, 0.08);
     }
 
     body {
@@ -129,20 +119,11 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
-
-    /* Estilo dos Cards dos Elementos */
-    .element-card {
-      transition: all 0.3s ease;
-      border: 1px solid var(--border);
-    }
-    .element-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
   </style>
 </head>
 <body class="body-font">
 
+  <!-- WhatsApp Floating Button (Sempre Visível) -->
   <a href="https://wa.me/message/HYCA7N7T73X4N1" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -151,6 +132,7 @@
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
     
+    <!-- HERO SECTION -->
     <div class="reveal mb-12 sm:mb-16 text-center">
       <p style="font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px;">Direcionamento Personalizado</p>
       
@@ -163,6 +145,7 @@
         Um direcionamento criado especialmente para o seu objetivo atual
       </p>
       
+      <!-- Hero Image -->
       <div class="mb-8 sm:mb-10 px-2 sm:px-0" style="max-width:650px;margin-left:auto;margin-right:auto;">
         <img src="https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/rc_vlm/da4e8862b20747d2a498ac474e2aff9a.jpg~tplv-0es2k971ck-image.image?rcl=2026083007255275E01C99D0465019697B&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788650753&x-signature=721ZpDt5j4cj6FJDAAuEmuRuRqE%3D" 
              alt="Combo Arquetípico Personalizado" 
@@ -174,6 +157,7 @@
       <div class="mb-8">
         <p style="color:var(--muted);font-size:14px;margin-bottom:4px;">Investimento</p>
         <p class="title-font text-4xl sm:text-5xl font-bold" style="color:var(--accent);">R$ 69,90</p>
+        <p class="text-sm font-semibold mt-1" style="color:var(--text);">ou 12x R$ 7,23</p>
       </div>
       
       <a href="https://pay.kiwify.com.br/oStCXUc" target="_blank" class="cta-btn inline-block w-full sm:w-auto text-center" style="padding:16px 36px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.03em;">
@@ -182,10 +166,12 @@
       <p class="text-xs sm:text-sm mt-3" style="color:var(--muted);">Pagamento 100% seguro</p>
     </div>
 
+    <!-- Divider -->
     <div class="divider-ornament mb-12 sm:mb-14">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
     </div>
 
+    <!-- DESCRIPTION SECTION -->
     <div class="reveal mb-12 sm:mb-16 text-center max-w-2xl mx-auto px-2">
       <p class="text-base sm:text-lg leading-relaxed mb-5" style="color:var(--text);line-height:1.75;">
         Você sabe o que deseja conquistar, mas não sabe quais arquétipos fazem mais sentido para esse momento?
@@ -195,6 +181,7 @@
       </p>
     </div>
 
+    <!-- AREAS SECTION -->
     <div class="reveal mb-12 sm:mb-16">
       <h2 class="title-font text-2xl sm:text-4xl font-bold mb-2 text-center" style="color:var(--text);">Pode ser para trabalhar</h2>
       <div class="divider-ornament mb-8 mt-3">
@@ -263,10 +250,12 @@
       <p class="text-center mt-5 text-sm sm:text-base" style="color:var(--muted);">Ou outro objetivo importante para você</p>
     </div>
 
+    <!-- Divider -->
     <div class="divider-ornament mb-12 sm:mb-14">
       <span style="font-size:10px;">✦ ✦ ✦</span>
     </div>
 
+    <!-- HOW IT WORKS -->
     <div class="reveal mb-12 sm:mb-16">
       <h2 class="title-font text-2xl sm:text-4xl font-bold mb-2 text-center" style="color:var(--text);">Como funciona?</h2>
       <div class="divider-ornament mb-8 mt-3">
@@ -290,113 +279,32 @@
       </div>
     </div>
 
-    <div class="reveal mb-12 sm:mb-16">
-      <h2 class="title-font text-2xl sm:text-4xl font-bold mb-2 text-center" style="color:var(--text);">O que você recebe</h2>
-      <div class="divider-ornament mb-8 mt-3">
-        <span style="font-size:10px;">✦</span>
-      </div>
-      
-      <div class="space-y-4 max-w-3xl mx-auto">
-        
-        <div class="benefit-card rounded-xl p-5 sm:p-6 flex items-start gap-4 sm:gap-5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:42px;height:42px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <div>
-            <p class="font-bold text-base sm:text-lg mb-1" style="color:var(--text);">Seu Combo Arquetípico</p>
-            <p class="text-sm sm:text-base" style="color:var(--muted);line-height:1.65;">Uma combinação exclusiva de arquétipos selecionada criteriosamente de acordo com o objetivo que você deseja ativar.</p>
-          </div>
-        </div>
-
-        <div class="rounded-xl p-5 sm:p-6" style="background:var(--card);border:1.5px solid var(--accent);box-shadow: 0 10px 30px rgba(184,134,74,.08);">
-          <div class="flex items-start gap-4 sm:gap-5 mb-4">
-            <div style="width:42px;height:42px;border-radius:50%;background:var(--accent2-soft);display:flex;align-items:center;justify-content:center;color:var(--accent2);flex-shrink:0;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-            </div>
-            <div>
-              <p class="font-bold text-base sm:text-lg mb-1" style="color:var(--text);">Análise dos 4 Elementos do seu Mapa</p>
-              <p class="text-sm sm:text-base" style="color:var(--muted);line-height:1.65;">
-                Descubra a distribuição exata dos elementos e entenda como cada força se expressa em você:
-              </p>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
-            
-            <div class="element-card rounded-lg p-3 sm:p-4 text-center" style="background: var(--fogo-bg); border-color: rgba(200, 90, 50, 0.2);">
-              <div class="mb-1 text-2xl">🔥</div>
-              <p class="font-bold text-sm sm:text-base" style="color: var(--fogo);">Fogo</p>
-              <p class="text-xs mt-1" style="color: var(--muted); font-size: 11px;">Ação, Coragem & Paixão</p>
-            </div>
-
-            <div class="element-card rounded-lg p-3 sm:p-4 text-center" style="background: var(--terra-bg); border-color: rgba(91, 112, 66, 0.2);">
-              <div class="mb-1 text-2xl">🌱</div>
-              <p class="font-bold text-sm sm:text-base" style="color: var(--terra);">Terra</p>
-              <p class="text-xs mt-1" style="color: var(--muted); font-size: 11px;">Foco, Estrutura & Frutos</p>
-            </div>
-
-            <div class="element-card rounded-lg p-3 sm:p-4 text-center" style="background: var(--ar-bg); border-color: rgba(74, 124, 133, 0.2);">
-              <div class="mb-1 text-2xl">💨</div>
-              <p class="font-bold text-sm sm:text-base" style="color: var(--ar);">Ar</p>
-              <p class="text-xs mt-1" style="color: var(--muted); font-size: 11px;">Visão, Mente & Clareza</p>
-            </div>
-
-            <div class="element-card rounded-lg p-3 sm:p-4 text-center" style="background: var(--agua-bg); border-color: rgba(59, 98, 133, 0.2);">
-              <div class="mb-1 text-2xl">💧</div>
-              <p class="font-bold text-sm sm:text-base" style="color: var(--agua);">Água</p>
-              <p class="text-xs mt-1" style="color: var(--muted); font-size: 11px;">Intuição, Conexão & Fluidez</p>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="benefit-card rounded-xl p-5 sm:p-6 flex items-start gap-4 sm:gap-5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:42px;height:42px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          </div>
-          <div>
-            <p class="font-bold text-base sm:text-lg mb-1" style="color:var(--text);">Telinha Arquetípica Personalizada</p>
-            <p class="text-sm sm:text-base" style="color:var(--muted);line-height:1.65;">Uma arte exclusiva criada com os arquétipos indicados para você salvar e utilizar na tela do seu celular como lembrete constante.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card rounded-xl p-5 sm:p-6 flex items-start gap-4 sm:gap-5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:42px;height:42px;border-radius:50%;background:var(--accent2-soft);display:flex;align-items:center;justify-content:center;color:var(--accent2);flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          </div>
-          <div>
-            <p class="font-bold text-base sm:text-lg mb-1" style="color:var(--text);">Guia Prático de Ativação</p>
-            <p class="text-sm sm:text-base" style="color:var(--muted);line-height:1.65;">Orientações claras para vivenciar cada arquétipo, integrar suas características no seu cotidiano e canalizar essa energia.</p>
-          </div>
-        </div>
-
-      </div>
+    <!-- Divider -->
+    <div class="divider-ornament mb-12 sm:mb-14">
+      <span style="font-size:10px;">✦ ✦ ✦</span>
     </div>
 
-    <div class="reveal mb-12 sm:mb-16 rounded-xl p-6 sm:p-8 text-center max-w-2xl mx-auto" style="background:var(--card);border:1px solid var(--accent);">
-      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <p class="font-bold text-base sm:text-lg" style="color:var(--accent);">Tudo enviado pelo WhatsApp</p>
-      </div>
-      <p class="text-sm sm:text-base" style="color:var(--muted);">Prático, individual e sem necessidade de agendar horários.</p>
+    <!-- IMAGEM COMBO PNG (SUBSTITUIU 'O QUE VOCÊ RECEBE' ATÉ 'SEU MOMENTO MUDOU?') -->
+    <div class="reveal mb-12 sm:mb-16 text-center max-w-3xl mx-auto px-2">
+      <img src="combo.png" 
+           alt="Combo Arquetípico - O que você recebe" 
+           style="width:100%;height:auto;border-radius:12px;box-shadow:0 15px 45px rgba(0,0,0,0.18);" 
+           loading="lazy">
     </div>
 
-    <div class="reveal mb-12 sm:mb-16 rounded-xl p-6 sm:p-8 max-w-2xl mx-auto" style="background:var(--accent-soft);border-left:4px solid var(--accent);">
-      <h3 class="font-bold text-lg sm:text-xl mb-2" style="color:var(--text);">Seu momento mudou? Seu objetivo também pode mudar!</h3>
-      <p class="text-sm sm:text-base leading-relaxed" style="color:var(--muted);">
-        A cada nova fase da vida, novas metas demandam novas frequências. O direcionamento do Combo Arquetípico é flexível para acompanhar exatamente a sua evolução atual.
-      </p>
-    </div>
-
+    <!-- FINAL CTA SECTION -->
     <div class="reveal text-center my-12 sm:my-16">
       <div class="mb-6">
         <p class="title-font text-3xl sm:text-4xl font-bold mb-2" style="color:var(--text);">Pronta para ativar a sua melhor versão?</p>
         <p class="text-sm sm:text-base" style="color:var(--muted);">Garanta seu Combo Arquetípico Personalizado agora por apenas</p>
-        <p class="title-font text-4xl sm:text-5xl font-bold mt-2" style="color:var(--accent);">R$ 69,90</p>
+        <p class="title-font text-4xl sm:text-5xl font-bold mt-2" style="color:var(--accent);">
+          R$ 69,90 <span class="text-lg sm:text-2xl font-normal" style="color:var(--text);">ou 12x R$ 7,23</span>
+        </p>
       </div>
       <a href="https://pay.kiwify.com.br/oStCXUc" target="_blank" class="cta-btn inline-block w-full sm:w-auto text-center" style="padding:18px 42px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;letter-spacing:.03em;">
         QUERO MEU COMBO ARQUETÍPICO
       </a>
+      <p class="text-xs sm:text-sm mt-3" style="color:var(--muted);">Pagamento 100% seguro</p>
     </div>
 
   </div>
