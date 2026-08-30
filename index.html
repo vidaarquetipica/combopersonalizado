@@ -308,17 +308,14 @@
     <div id="formulario-dados" class="reveal text-center my-12 sm:my-16 max-w-xl mx-auto px-2">
       <div class="mb-6">
         <p class="title-font text-3xl sm:text-4xl font-bold mb-2" style="color:var(--text);">Pronta para ativar a sua melhor versão?</p>
-        <p class="text-sm sm:text-base mb-2" style="color:var(--muted);">Preencha os dados abaixo para o seu direcionamento personalizado:</p>
+        <p class="text-sm sm:text-base mb-2" style="color:var(--muted);">Preencha os dados abaixo para o seu combo personalizado:</p>
       </div>
 
-      <!-- FORMULÁRIO DE CAPTURA COM A SUA CHAVE -->
-      <form action="https://api.web3forms.com/submit" method="POST" class="text-left rounded-2xl p-6 sm:p-8 mb-6" style="background:var(--card);border:1px solid var(--accent);box-shadow:0 10px 30px rgba(184,134,74,.08);">
+      <!-- FORMULÁRIO DE CAPTURA COM ENVIO AUTOMÁTICO -->
+      <form id="comboForm" action="https://api.web3forms.com/submit" method="POST" class="text-left rounded-2xl p-6 sm:p-8 mb-6" style="background:var(--card);border:1px solid var(--accent);box-shadow:0 10px 30px rgba(184,134,74,.08);">
         
         <!-- Chave Web3Forms configurada -->
         <input type="hidden" name="access_key" value="376491cc-5203-40bf-af8e-da68f6b19645">
-        
-        <!-- Redirecionamento automático para a Kiwify após enviar -->
-        <input type="hidden" name="redirect" value="https://pay.kiwify.com.br/oStCXUc">
         
         <!-- Assunto do e-mail que você vai receber -->
         <input type="hidden" name="subject" value="Novo Pedido - Combo Arquetípico">
@@ -351,7 +348,7 @@
           </p>
         </div>
 
-        <button type="submit" class="cta-btn w-full text-center py-4 px-6 rounded-lg font-bold text-base tracking-wide">
+        <button type="submit" id="submitBtn" class="cta-btn w-full text-center py-4 px-6 rounded-lg font-bold text-base tracking-wide">
           CONFIRMAR E IR PARA O PAGAMENTO
         </button>
         
@@ -361,6 +358,34 @@
     </div>
 
   </div>
+
+  <!-- SCRIPT PARA GARANTIR ENVIO DOS DADOS E REDIRECIONAMENTO IMEDIATO -->
+  <script>
+    document.getElementById('comboForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Impede o envio padrão que travava a tela
+      
+      const btn = document.getElementById('submitBtn');
+      btn.innerText = 'PROCESSANDO... AGUARDE';
+      btn.style.opacity = '0.7';
+      btn.disabled = true;
+
+      const formData = new FormData(this);
+
+      // Envia os dados para o e-mail em segundo plano
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function() {
+        // Direciona direto para a Kiwify imediatamente
+        window.location.href = 'https://pay.kiwify.com.br/oStCXUc';
+      })
+      .catch(function(err) {
+        // Mesmo em caso de falha de conexão, garante que o cliente vá pagar
+        window.location.href = 'https://pay.kiwify.com.br/oStCXUc';
+      });
+    });
+  </script>
 
 </body>
 </html>
