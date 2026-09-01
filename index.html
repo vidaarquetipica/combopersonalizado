@@ -325,6 +325,18 @@
           <input type="text" name="Nome Completo" required placeholder="Digite seu nome completo" class="form-input">
         </div>
 
+        <!-- NOVOS CAMPOS: WHATSAPP E E-MAIL -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">WhatsApp (com DDD) *</label>
+            <input type="tel" name="WhatsApp" required placeholder="(00) 00000-0000" class="form-input">
+          </div>
+          <div>
+            <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">E-mail *</label>
+            <input type="email" name="E-mail" required placeholder="seu@email.com" class="form-input">
+          </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
             <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Data de Nascimento *</label>
@@ -334,6 +346,12 @@
             <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Horário de Nascimento</label>
             <input type="text" name="Horário de Nascimento" placeholder="Ex: 14:30 (se souber)" class="form-input">
           </div>
+        </div>
+
+        <!-- NOVO CAMPO: CIDADE DE NASCIMENTO -->
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Cidade de Nascimento *</label>
+          <input type="text" name="Cidade de Nascimento" required placeholder="Digite a cidade e estado onde nasceu" class="form-input">
         </div>
 
         <div class="mb-6">
