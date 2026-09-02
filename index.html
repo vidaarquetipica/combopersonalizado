@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Combo Arquetípico Personalizado</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
@@ -166,10 +166,12 @@
              loading="lazy">
       </div>
       
-      <div class="mb-8">
-        <p style="color:var(--muted);font-size:14px;margin-bottom:4px;">Investimento</p>
-        <p class="title-font text-4xl sm:text-5xl font-bold" style="color:var(--accent);">R$ 78,90</p>
-        <p class="text-sm font-semibold mt-1" style="color:var(--text);
+      <!-- BLOCO DE PREÇO HERO (RETO E ALINHADO) -->
+      <div class="mb-8 text-center">
+        <p style="color:var(--muted);font-size:14px;margin-bottom:4px;font-weight:600;">Investimento</p>
+        <p class="body-font text-4xl sm:text-5xl font-extrabold tracking-tight" style="color:var(--accent);font-style:normal;">R$ 78,90</p>
+        <p class="text-sm font-bold mt-1" style="color:var(--text);">ou 12x de R$ 8,16</p>
+      </div>
       
       <a href="#formulario-dados" class="cta-btn inline-block w-full sm:w-auto text-center" style="padding:16px 36px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.03em;">
         QUERO MEU COMBO ARQUETÍPICO
@@ -324,7 +326,7 @@
           <input type="text" name="Nome Completo" required placeholder="Digite seu nome completo" class="form-input">
         </div>
 
-        <!-- NOVOS CAMPOS: WHATSAPP E E-MAIL -->
+        <!-- CAMPOS: WHATSAPP E E-MAIL -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
             <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">WhatsApp (com DDD) *</label>
@@ -347,7 +349,7 @@
           </div>
         </div>
 
-        <!-- NOVO CAMPO: CIDADE DE NASCIMENTO -->
+        <!-- CAMPO: CIDADE DE NASCIMENTO -->
         <div class="mb-4">
           <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Cidade de Nascimento *</label>
           <input type="text" name="Cidade de Nascimento" required placeholder="Digite a cidade e estado onde nasceu" class="form-input">
@@ -358,11 +360,13 @@
           <textarea name="Objetivo" required rows="3" placeholder="Ex: Aumentar minhas vendas, ter mais autoconfiança no trabalho..." class="form-input"></textarea>
         </div>
 
+        <!-- BLOCO DE PREÇO FORMULÁRIO (RETO E TOTALMENTE ALINHADO) -->
         <div class="text-center mb-6">
-          <p class="text-xs sm:text-sm" style="color:var(--muted);">Garanta seu Combo Arquetípico Personalizado agora por apenas</p>
-          <p class="title-font text-3xl sm:text-4xl font-bold mt-1" style="color:var(--accent);">
-            R$ 78,90 <span class="text-base sm:text-xl font-normal" style="color:var(--text);
-          </p>
+          <p class="text-xs sm:text-sm font-semibold" style="color:var(--muted);">Garanta seu Combo Arquetípico Personalizado agora por apenas</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mt-2">
+            <span class="body-font text-3xl sm:text-4xl font-extrabold" style="color:var(--accent);font-style:normal;">R$ 78,90</span>
+            <span class="text-sm sm:text-base font-bold" style="color:var(--text);">ou 12x de R$ 8,16</span>
+          </div>
         </div>
 
         <button type="submit" id="submitBtn" class="cta-btn w-full text-center py-4 px-6 rounded-lg font-bold text-base tracking-wide">
