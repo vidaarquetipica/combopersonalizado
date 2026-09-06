@@ -159,18 +159,11 @@
       
       <!-- Hero Image -->
       <div class="mb-8 sm:mb-10 px-2 sm:px-0" style="max-width:650px;margin-left:auto;margin-right:auto;">
-        <img src="https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/rc_vlm/da4e8862b20747d2a498ac474e2aff9a.jpg~tplv-0es2k971ck-image.image?rcl=2026083007255275E01C99D0465019697B&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788650753&x-signature=721ZpDt5j4cj6FJDAAuEmuRuRqE%3D" 
+        <img src="combo 1.jpeg" 
              alt="Combo Arquetípico Personalizado" 
              onerror="this.style.display='none'" 
              style="width:100%;height:auto;border-radius:12px;box-shadow:0 15px 45px rgba(184,134,74,.18);" 
              loading="lazy">
-      </div>
-      
-      <!-- BLOCO DE PREÇO HERO (RETO E ALINHADO) -->
-      <div class="mb-8 text-center">
-        <p style="color:var(--muted);font-size:14px;margin-bottom:4px;font-weight:600;">Investimento</p>
-        <p class="body-font text-4xl sm:text-5xl font-extrabold tracking-tight" style="color:var(--accent);font-style:normal;">R$ 78,90</p>
-        <p class="text-sm font-bold mt-1" style="color:var(--text);">ou 12x de R$ 8,16</p>
       </div>
       
       <a href="#formulario-dados" class="cta-btn inline-block w-full sm:w-auto text-center" style="padding:16px 36px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.03em;">
@@ -383,7 +376,7 @@
   <!-- SCRIPT PARA GARANTIR ENVIO DOS DADOS E REDIRECIONAMENTO IMEDIATO -->
   <script>
     document.getElementById('comboForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Impede o envio padrão que travava a tela
+      e.preventDefault();
       
       const btn = document.getElementById('submitBtn');
       btn.innerText = 'PROCESSANDO... AGUARDE';
@@ -392,17 +385,14 @@
 
       const formData = new FormData(this);
 
-      // Envia os dados para o e-mail em segundo plano
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
       })
       .then(function() {
-        // Direciona direto para a Kiwify imediatamente
         window.location.href = 'https://pay.kiwify.com.br/oStCXUc';
       })
       .catch(function(err) {
-        // Mesmo em caso de falha de conexão, garante que o cliente vá pagar
         window.location.href = 'https://pay.kiwify.com.br/oStCXUc';
       });
     });
