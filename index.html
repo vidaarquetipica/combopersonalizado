@@ -1,402 +1,517 @@
 <!DOCTYPE html>
-<html lang="pt-BR" style="margin:0;padding:0;">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Combo Arquetípico Personalizado</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Combo Arquetípico Personalizado: uma combinação de arquétipos escolhida a partir do seu objetivo e da análise dos seus elementos predominantes no mapa astral.">
+  <meta name="theme-color" content="#241735">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #f5ebe0;
-      --card: #fdf8f3;
-      --text: #2d1b2e;
-      --muted: #7a6b5d;
-      --accent: #b8864a;
-      --accent-soft: rgba(184,134,74,.12);
-      --accent2: #a85c32;
-      --accent2-soft: rgba(168,92,50,.12);
-      --border: rgba(45,27,46,.12);
+    :root{
+      --bg:#f8f4f8;
+      --bg2:#eee5f2;
+      --card:#ffffff;
+      --ink:#2a1a32;
+      --muted:#6f6573;
+      --purple:#69458a;
+      --purple-deep:#3b2450;
+      --purple-soft:rgba(105,69,138,.09);
+      --gold:#b8873e;
+      --gold-soft:rgba(184,135,62,.11);
+      --border:rgba(42,26,50,.11);
+      --white:#fff;
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(180deg, #f7efe5 0%, #f5ebe0 50%, #f2e6d8 100%);
-      color: var(--text);
-      font-family: 'Nunito', sans-serif;
-      overflow-x: hidden;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(105,69,138,.08), transparent 28%),
+        linear-gradient(180deg,#fbf8fb 0%,#f6f0f7 46%,#f9f5fa 100%);
+      font-family:'Nunito',sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none}
+    .serif{font-family:'Cormorant Garamond',serif}
+
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      background:rgba(251,248,251,.90);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-inner{
+      max-width:1000px;margin:0 auto;padding:11px 16px;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+    }
+    .brand{display:flex;align-items:center;gap:9px}
+    .brand-mark{
+      width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      border:1px solid var(--gold);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:18px
+    }
+    .brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600}
+    .top-btn{
+      background:var(--purple-deep);color:#fff;padding:9px 14px;border-radius:999px;
+      font-size:10px;font-weight:800;letter-spacing:.08em
     }
 
-    .title-font { font-family: "Cormorant Garamond", serif; }
-    .body-font { font-family: "Nunito", sans-serif; }
+    .hero{
+      padding:54px 18px 58px;
+      background:
+        radial-gradient(circle at 12% 8%,rgba(105,69,138,.14),transparent 34%),
+        radial-gradient(circle at 88% 0%,rgba(184,135,62,.09),transparent 28%),
+        linear-gradient(180deg,#fffafd 0%,#f3ebf5 100%);
+    }
+    .hero-inner{max-width:880px;margin:0 auto;text-align:center}
+    .eyebrow{
+      display:inline-block;border:1px solid rgba(105,69,138,.18);background:rgba(105,69,138,.05);
+      color:var(--purple);padding:6px 13px;border-radius:999px;font-size:10px;font-weight:800;
+      text-transform:uppercase;letter-spacing:.16em
+    }
+    .hero h1{
+      font-size:clamp(39px,7vw,67px);line-height:1.02;margin:18px 0 12px;font-weight:700
+    }
+    .gold{color:var(--gold)}
+    .hero-lead{
+      max-width:680px;margin:0 auto;color:var(--purple-deep);
+      font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,31px);
+      line-height:1.15;font-style:italic
+    }
+    .hero-copy{
+      max-width:655px;margin:18px auto 0;color:var(--muted);
+      font-size:16px;line-height:1.75
+    }
+    .hero-image{
+      width:100%;max-width:720px;height:auto;display:block;margin:28px auto 0;
+      border-radius:18px;box-shadow:0 22px 55px rgba(42,26,50,.15);border:1px solid var(--border)
+    }
+    .price-pill{
+      display:inline-flex;align-items:center;gap:8px;margin-top:20px;
+      color:var(--purple-deep);background:var(--white);
+      border:1px solid rgba(105,69,138,.16);border-radius:999px;padding:8px 13px;
+      font-size:12px;font-weight:700
+    }
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:16px 24px;border-radius:999px;background:var(--purple-deep);color:#fff;
+      font-size:15px;font-weight:800;letter-spacing:.02em;
+      box-shadow:0 12px 30px rgba(59,36,80,.20);
+      transition:.18s ease
+    }
+    .cta:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(59,36,80,.26);background:#4a2f61}
+    .cta-gold{background:linear-gradient(135deg,#c2954b,#a97632);color:#fff}
+    .cta-gold:hover{background:linear-gradient(135deg,#d0a35a,#b17c39)}
+    .cta-wrap{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:9px}
+    .micro{font-size:11px;color:#827887}
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp .6s ease forwards;
+    .section{padding:66px 18px}
+    .section.alt{background:linear-gradient(180deg,#f0e8f4 0%,#f7f2f8 100%)}
+    .container{max-width:960px;margin:0 auto}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 32px}
+    .kicker{
+      color:var(--gold);text-transform:uppercase;letter-spacing:.18em;
+      font-size:10px;font-weight:800;margin-bottom:8px
     }
+    .section-head h2{
+      font-family:'Cormorant Garamond',serif;font-size:clamp(31px,5vw,46px);
+      line-height:1.05;margin:0;color:var(--ink)
+    }
+    .section-head p{font-size:15px;line-height:1.7;color:var(--muted);margin:13px auto 0}
 
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .truth{
+      display:grid;grid-template-columns:1fr 1fr;gap:14px
     }
-
-    .benefit-card {
-      transition: transform .25s ease, border-color .25s, box-shadow .25s;
+    .truth-card{
+      background:rgba(255,255,255,.82);border:1px solid var(--border);border-radius:17px;
+      padding:20px;color:var(--muted);line-height:1.58
     }
-    .benefit-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-      box-shadow: 0 8px 30px rgba(184,134,74,.12);
-    }
-
-    .cta-btn {
-      transition: all .25s ease;
-      background: linear-gradient(135deg, #3a2438, #2d1b2e);
-      color: #e8d5b7;
-      border: 1px solid var(--accent);
-      cursor: pointer;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(184,134,74,.25);
-      background: linear-gradient(135deg, #4a2e48, #3a2438);
-    }
-
-    /* Botão Flutuante do WhatsApp - Fixado na tela */
-    .whatsapp-float {
-      position: fixed !important;
-      right: 20px;
-      bottom: 20px;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: #25d366;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 22px rgba(37,211,102,0.4);
-      z-index: 9999;
-      text-decoration: none;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 28px rgba(37,211,102,0.5);
-    }
-
-    @media (max-width: 640px) {
-      .whatsapp-float {
-        right: 16px;
-        bottom: 16px;
-        width: 52px;
-        height: 52px;
-      }
-      .whatsapp-float svg {
-        width: 26px;
-        height: 26px;
-      }
-    }
-
-    .divider-ornament {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      color: var(--accent);
-    }
-    .divider-ornament::before, .divider-ornament::after {
-      content: "";
-      flex: 1;
-      max-width: 80px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    .truth-card strong{color:var(--ink)}
+    .bridge{
+      margin-top:20px;border-radius:18px;border:1px solid rgba(184,135,62,.24);
+      background:linear-gradient(135deg,rgba(184,135,62,.08),rgba(105,69,138,.06));
+      padding:23px;text-align:center
     }
 
-    .form-input {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      color: var(--text);
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    .benefits{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px
     }
-    .form-input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(184,134,74,0.15);
+    .benefit{
+      background:var(--card);border:1px solid var(--border);border-radius:17px;padding:22px
+    }
+    .benefit-number{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);font-weight:800}
+    .benefit h3{font-family:'Cormorant Garamond',serif;font-size:25px;line-height:1.02;margin:9px 0 8px}
+    .benefit p{color:var(--muted);font-size:14px;line-height:1.62;margin:0}
+
+    .areas{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:10px
+    }
+    .area{
+      background:var(--white);border:1px solid var(--border);border-radius:14px;padding:17px 14px;text-align:center;
+      color:var(--purple-deep);font-size:13px;font-weight:800
+    }
+
+    .process{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px
+    }
+    .process-card{
+      background:var(--purple-deep);color:#fff;border-radius:17px;padding:22px
+    }
+    .process-card .n{font-family:'Cormorant Garamond',serif;font-size:35px;color:var(--gold);line-height:1}
+    .process-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;margin:9px 0 6px}
+    .process-card p{color:#ddd2e3;font-size:13px;line-height:1.6;margin:0}
+
+    .image-section{text-align:center}
+    .combo-image{
+      width:100%;max-width:820px;height:auto;display:block;margin:0 auto;
+      border-radius:18px;box-shadow:0 22px 60px rgba(42,26,50,.13);border:1px solid var(--border)
+    }
+
+    .offer-section{
+      padding:78px 18px;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(105,69,138,.19),transparent 42%),
+        linear-gradient(180deg,#f1e9f5 0%,#ece2f1 100%);
+    }
+    .offer{
+      max-width:650px;margin:0 auto;text-align:center;
+      background:linear-gradient(145deg,#fff,#fbf7fc);border:2px solid var(--gold);
+      border-radius:24px;padding:36px 22px;box-shadow:0 25px 65px rgba(42,26,50,.12)
+    }
+    .offer-badge{
+      display:inline-block;background:var(--purple-deep);color:#fff;padding:7px 15px;border-radius:999px;
+      font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase
+    }
+    .offer h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,6vw,46px);line-height:1.02;margin:18px 0 8px}
+    .offer-sub{color:var(--muted);font-size:14px;line-height:1.6;max-width:500px;margin:0 auto}
+    .old-price{color:#a09aa2;text-decoration:line-through;font-size:13px;margin-top:21px}
+    .price-label{color:var(--gold);font-size:15px;font-weight:700;margin-top:2px}
+    .price{font-family:'Cormorant Garamond',serif;font-size:71px;font-weight:700;line-height:.9;margin:5px 0;color:var(--ink)}
+    .price small{font-size:28px;color:#756a7b}
+    .points{max-width:420px;margin:22px auto;text-align:left}
+    .point{padding:8px 0;border-bottom:1px solid rgba(42,26,50,.07);font-size:14px;color:var(--ink)}
+    .point:last-child{border-bottom:0}
+    .check{color:var(--gold);font-weight:900;margin-right:8px}
+    .offer-note{margin:14px auto 0;font-size:12px;color:var(--muted);line-height:1.6;max-width:440px}
+
+    .faq{max-width:780px;margin:0 auto}
+    details{background:rgba(255,255,255,.86);border:1px solid var(--border);border-radius:14px;padding:17px 18px}
+    details+details{margin-top:9px}
+    summary{cursor:pointer;display:flex;justify-content:space-between;gap:18px;font-weight:800;color:var(--ink);font-size:14px}
+    summary span{color:var(--gold)}
+    details p{margin:11px 0 0;padding-top:11px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;line-height:1.65}
+
+    .final{text-align:center;padding:34px 18px 72px}
+    .final h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,6vw,51px);line-height:1.02;max-width:700px;margin:0 auto 12px}
+    .final p{max-width:580px;margin:0 auto 24px;color:var(--muted);line-height:1.7;font-size:15px}
+
+    .whatsapp{
+      position:fixed;right:18px;bottom:18px;z-index:80;width:54px;height:54px;border-radius:50%;
+      background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 10px 26px rgba(37,211,102,.32)
+    }
+    .whatsapp:hover{transform:scale(1.06)}
+    .whatsapp svg{width:28px;height:28px}
+
+    footer{padding:28px 18px;text-align:center;background:#17101d;color:#aaa0b0;border-top:1px solid rgba(255,255,255,.06)}
+    footer .footer-title{font-family:'Cormorant Garamond',serif;color:var(--gold-light, #e3ca86);font-size:19px}
+    footer p{font-size:11px;margin:7px 0 0}
+
+    @media(max-width:820px){
+      .benefits{grid-template-columns:1fr 1fr}
+      .areas{grid-template-columns:1fr 1fr}
+      .process{grid-template-columns:1fr}
+    }
+    @media(max-width:620px){
+      .hero{padding:45px 15px 52px}
+      .topbar-inner{padding:10px 12px}
+      .brand-name{font-size:17px}
+      .top-btn{font-size:9px;padding:8px 11px}
+      .section{padding:54px 15px}
+      .truth,.benefits{grid-template-columns:1fr}
+      .cta{width:100%;max-width:340px}
+      .offer-section{padding:58px 15px}
+      .offer{padding:31px 17px}
+      .price{font-size:59px}
+      .whatsapp{width:51px;height:51px;right:15px;bottom:15px}
+      .whatsapp svg{width:26px;height:26px}
     }
   </style>
 </head>
-<body class="body-font">
 
-  <!-- WhatsApp Floating Button (Sempre Visível) -->
-  <a href="https://wa.me/message/HYCA7N7T73X4N1" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div class="brand-name">Vida Arquetípica</div>
+      </div>
+      <a class="top-btn" href="https://pay.kiwify.com.br/oStCXUc" target="_blank" rel="noopener noreferrer">QUERO MEU COMBO</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">Direcionamento personalizado</span>
+
+        <h1 class="serif">
+          Seu arquétipo não precisa ser escolhido <span class="gold">no acaso.</span>
+        </h1>
+
+        <p class="hero-lead">
+          Eu preparo uma combinação pensada para o objetivo que você quer desenvolver agora.
+        </p>
+
+        <p class="hero-copy">
+          No Combo Arquetípico Personalizado, eu analiso seu objetivo e os elementos predominantes no seu mapa astral para selecionar uma combinação de arquétipos alinhada ao seu momento.
+        </p>
+
+        <img src="combo 1.jpeg" alt="Combo Arquetípico Personalizado" class="hero-image">
+
+        <div class="price-pill">Combo personalizado · R$ 78,90</div>
+
+        <div class="cta-wrap">
+          <a class="cta cta-gold" href="https://pay.kiwify.com.br/oStCXUc" target="_blank" rel="noopener noreferrer">
+            QUERO MEU COMBO PERSONALIZADO
+          </a>
+          <span class="micro">Você será direcionada diretamente ao checkout.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDENTIFICAÇÃO -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Você não precisa adivinhar</div>
+          <h2 class="serif">Talvez você já tenha pensado:</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="truth">
+          <div class="truth-card">“Qual arquétipo combina com o que eu quero viver <strong>agora</strong>?”</div>
+          <div class="truth-card">“Eu vejo tantos arquétipos que acabo ficando <strong>sem saber qual escolher</strong>.”</div>
+          <div class="truth-card">“Eu quero trabalhar prosperidade, confiança, vendas ou magnetismo, mas <strong>não sei por onde começar</strong>.”</div>
+          <div class="truth-card">“Quero uma indicação que tenha relação comigo, e não uma <strong>lista genérica da internet</strong>.”</div>
+        </div>
+
+        <div class="bridge">
+          <p class="serif" style="font-size:24px;margin:0 0 7px;">
+            É exatamente por isso que existe o <span class="gold">Combo Arquetípico Personalizado.</span>
+          </p>
+          <p style="font-size:14px;color:var(--muted);line-height:1.65;margin:0;">
+            Você me apresenta o que deseja desenvolver. Eu faço a análise e preparo o direcionamento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">O que você recebe</div>
+          <h2 class="serif">Mais do que uma indicação</h2>
+          <p>Você recebe uma combinação construída a partir do seu objetivo.</p>
+          <div class="line"></div>
+        </div>
+
+        <div class="benefits">
+          <article class="benefit">
+            <div class="benefit-number">01 · Análise</div>
+            <h3>Seu objetivo</h3>
+            <p>Eu considero aquilo que você deseja fortalecer e desenvolver neste momento.</p>
+          </article>
+          <article class="benefit">
+            <div class="benefit-number">02 · Mapa</div>
+            <h3>Seus elementos</h3>
+            <p>Observo os elementos predominantes no seu mapa astral para compor o direcionamento.</p>
+          </article>
+          <article class="benefit">
+            <div class="benefit-number">03 · Direção</div>
+            <h3>Sua combinação</h3>
+            <p>Você recebe os arquétipos selecionados para o foco que trouxe para a análise.</p>
+          </article>
+        </div>
+
+        <div style="text-align:center;margin-top:24px;">
+          <a class="cta" href="https://pay.kiwify.com.br/oStCXUc" target="_blank" rel="noopener noreferrer">QUERO MEU DIRECIONAMENTO</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÁREAS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Pode ser para você</div>
+          <h2 class="serif">Um objetivo específico ou uma fase da sua vida</h2>
+          <p>Alguns dos temas que podem orientar o seu direcionamento:</p>
+          <div class="line"></div>
+        </div>
+
+        <div class="areas">
+          <div class="area">Prosperidade</div>
+          <div class="area">Vida profissional</div>
+          <div class="area">Vendas</div>
+          <div class="area">Posicionamento</div>
+          <div class="area">Autoconfiança</div>
+          <div class="area">Autoestima</div>
+          <div class="area">Magnetismo</div>
+          <div class="area">Relacionamentos</div>
+          <div class="area">Comunicação</div>
+          <div class="area">Disciplina</div>
+          <div class="area">Criatividade</div>
+          <div class="area">Expansão</div>
+        </div>
+
+        <p style="text-align:center;color:var(--muted);font-size:13px;margin-top:16px;">Ou outro objetivo importante para você.</p>
+      </div>
+    </section>
+
+    <!-- PROCESSO -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Simples e direto</div>
+          <h2 class="serif">Você pede. Eu analiso. Você recebe.</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="process">
+          <article class="process-card">
+            <div class="n">01</div>
+            <h3>Você compra</h3>
+            <p>Faz seu pedido pelo checkout seguro.</p>
+          </article>
+          <article class="process-card">
+            <div class="n">02</div>
+            <h3>Você envia seus dados</h3>
+            <p>Depois da compra, envia as informações necessárias para a personalização.</p>
+          </article>
+          <article class="process-card">
+            <div class="n">03</div>
+            <h3>Eu preparo seu combo</h3>
+            <p>A partir das informações recebidas, preparo o seu direcionamento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGEM DO COMBO -->
+    <section class="section image-section">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Veja a proposta</div>
+          <h2 class="serif">Seu direcionamento é pensado para o que você está vivendo</h2>
+          <div class="line"></div>
+        </div>
+
+        <img src="combo.jpeg" alt="Combo Arquetípico - o que você recebe" class="combo-image">
+
+        <div class="cta-wrap">
+          <a class="cta cta-gold" href="https://pay.kiwify.com.br/oStCXUc" target="_blank" rel="noopener noreferrer">
+            QUERO COMEÇAR MEU COMBO
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="offer-section">
+      <div class="offer">
+        <span class="offer-badge">Seu direcionamento</span>
+
+        <h2>Combo Arquetípico <span class="gold">Personalizado</span></h2>
+
+        <p class="offer-sub">
+          Uma combinação de arquétipos pensada a partir do seu objetivo e da análise dos seus elementos predominantes.
+        </p>
+
+        <div class="old-price">Valor apresentado anteriormente: R$ 78,90</div>
+        <div class="price-label">Seu investimento hoje</div>
+        <div class="price">R$ 78<small>,90</small></div>
+
+        <div class="points">
+          <div class="point"><span class="check">✓</span>Direcionamento baseado no seu objetivo</div>
+          <div class="point"><span class="check">✓</span>Análise dos elementos predominantes do seu mapa astral</div>
+          <div class="point"><span class="check">✓</span>Combinação de arquétipos escolhida para o seu foco</div>
+          <div class="point"><span class="check">✓</span>Processo personalizado</div>
+        </div>
+
+        <a class="cta cta-gold" href="https://pay.kiwify.com.br/oStCXUc" target="_blank" rel="noopener noreferrer" style="width:100%;max-width:420px;">
+          QUERO MEU COMBO POR R$ 78,90
+        </a>
+
+        <p class="offer-note">
+          Depois da confirmação da compra, você receberá as orientações para enviar os dados necessários para a personalização.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Antes de comprar</div>
+          <h2 class="serif">Dúvidas frequentes</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Preciso saber qual arquétipo quero? <span>+</span></summary>
+            <p>Não. Essa é justamente a proposta do combo: você apresenta o objetivo e a combinação é direcionada a partir da análise.</p>
+          </details>
+          <details>
+            <summary>Preciso saber meu horário de nascimento? <span>+</span></summary>
+            <p>O horário pode ajudar na análise do mapa, mas o processo também considera as demais informações solicitadas após a compra.</p>
+          </details>
+          <details>
+            <summary>Posso escolher qualquer objetivo? <span>+</span></summary>
+            <p>Você pode trazer o objetivo que deseja desenvolver. A página apresenta exemplos como prosperidade, vida profissional, vendas, autoconfiança, magnetismo, comunicação e criatividade.</p>
+          </details>
+          <details>
+            <summary>Como começo? <span>+</span></summary>
+            <p>É simples: clique no botão, faça a compra e, depois da confirmação, envie os dados necessários para a personalização.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final">
+      <div class="kicker">Seu próximo passo</div>
+      <h2>Você não precisa passar horas tentando descobrir qual arquétipo escolher.</h2>
+      <p>
+        Me conte o que você deseja desenvolver e eu preparo um direcionamento pensado para esse objetivo.
+      </p>
+      <a class="cta cta-gold" href="https://pay.kiwify.com.br/oStCXUc" target="_blank" rel="noopener noreferrer">
+        QUERO MEU COMBO PERSONALIZADO
+      </a>
+      <div class="micro" style="margin-top:10px;">R$ 78,90 · processo personalizado</div>
+    </section>
+  </main>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp" href="https://wa.me/message/HYCA7N7T73X4N1" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path fill="currentColor" d="M19.11 17.23c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.89 1.1-.16.19-.33.21-.61.07-.28-.14-1.19-.44-2.27-1.4-.84-.75-1.4-1.67-1.57-1.95-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.46-.47-.64-.48h-.55c-.19 0-.49.07-.75.35-.26.28-1 .98-1 2.4s1.03 2.79 1.17 2.98c.14.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.11.55-.08 1.66-.68 1.9-1.34.23-.66.23-1.22.16-1.34-.07-.12-.26-.19-.54-.33Z"/>
+      <path fill="currentColor" d="M27.02 4.93A14.94 14.94 0 0 0 16.4.53C8.15.53 1.44 7.23 1.44 15.49c0 2.63.69 5.2 1.99 7.47L1.31 29.3l6.5-2.08a14.98 14.98 0 0 0 8.58 2.69h.01c8.25 0 14.96-6.71 14.96-14.96 0-4-1.56-7.76-4.34-10.02ZM16.4 27.43h-.01a12 12 0 0 1-6.12-1.67l-.44-.26-3.86 1.24 1.26-3.76-.29-.46a11.95 11.95 0 0 1-1.84-6.4c0-6.63 5.4-12.02 12.04-12.02 3.21 0 6.23 1.25 8.5 3.52a11.96 11.96 0 0 1 3.5 8.51c0 6.62-5.4 12.02-12.04 12.02Z"/>
     </svg>
   </a>
 
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-    
-    <!-- HERO SECTION -->
-    <div class="reveal mb-12 sm:mb-16 text-center">
-      <p style="font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px;">Direcionamento Personalizado</p>
-      
-      <h1 class="title-font text-4xl sm:text-5xl md:text-6xl font-bold mb-4" style="color:var(--text);line-height:1.15;">
-        Combo Arquetípico<br>
-        <span style="color:var(--accent);font-style:italic;">Personalizado</span>
-      </h1>
-      
-      <p class="text-base sm:text-lg mb-8 sm:mb-10" style="color:var(--muted);max-width:540px;margin-left:auto;margin-right:auto;">
-        Um direcionamento criado especialmente para o seu objetivo atual
-      </p>
-      
-      <!-- Hero Image -->
-      <div class="mb-8 sm:mb-10 px-2 sm:px-0" style="max-width:650px;margin-left:auto;margin-right:auto;">
-        <img src="combo 1.jpeg" 
-             alt="Combo Arquetípico Personalizado" 
-             onerror="this.style.display='none'" 
-             style="width:100%;height:auto;border-radius:12px;box-shadow:0 15px 45px rgba(184,134,74,.18);" 
-             loading="lazy">
-      </div>
-      
-      <a href="#formulario-dados" class="cta-btn inline-block w-full sm:w-auto text-center" style="padding:16px 36px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.03em;">
-        QUERO MEU COMBO ARQUETÍPICO
-      </a>
-      <p class="text-xs sm:text-sm mt-3" style="color:var(--muted);">Pagamento 100% seguro</p>
-    </div>
-
-    <!-- Divider -->
-    <div class="divider-ornament mb-12 sm:mb-14">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
-    </div>
-
-    <!-- DESCRIPTION SECTION -->
-    <div class="reveal mb-12 sm:mb-16 text-center max-w-2xl mx-auto px-2">
-      <p class="text-base sm:text-lg leading-relaxed mb-5" style="color:var(--text);line-height:1.75;">
-        Você sabe o que deseja conquistar, mas não sabe quais arquétipos fazem mais sentido para esse momento?
-      </p>
-      <p class="text-base sm:text-lg leading-relaxed" style="color:var(--muted);line-height:1.75;">
-        No <strong style="color:var(--text);">Combo Arquetípico Personalizado</strong>, eu analiso o seu objetivo, observo seus elementos predominantes no mapa astral e seleciono uma combinação de arquétipos alinhada ao que você deseja desenvolver.
-      </p>
-    </div>
-
-    <!-- AREAS SECTION -->
-    <div class="reveal mb-12 sm:mb-16">
-      <h2 class="title-font text-2xl sm:text-4xl font-bold mb-2 text-center" style="color:var(--text);">Pode ser para trabalhar</h2>
-      <div class="divider-ornament mb-8 mt-3">
-        <span style="font-size:10px;">✦</span>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-        
-        <div class="benefit-card rounded-xl p-4 sm:p-5 flex items-center gap-3.5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <p class="font-semibold text-sm sm:text-base" style="color:var(--text);">Prosperidade e vida profissional</p>
-        </div>
-
-        <div class="benefit-card rounded-xl p-4 sm:p-5 flex items-center gap-3.5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
-          </div>
-          <p class="font-semibold text-sm sm:text-base" style="color:var(--text);">Vendas e posicionamento</p>
-        </div>
-
-        <div class="benefit-card rounded-xl p-4 sm:p-5 flex items-center gap-3.5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <p class="font-semibold text-sm sm:text-base" style="color:var(--text);">Autoconfiança e autoestima</p>
-        </div>
-
-        <div class="benefit-card rounded-xl p-4 sm:p-5 flex items-center gap-3.5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
-          </div>
-          <p class="font-semibold text-sm sm:text-base" style="color:var(--text);">Magnetismo e presença</p>
-        </div>
-
-        <div class="benefit-card rounded-xl p-4 sm:p-5 flex items-center gap-3.5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <p class="font-semibold text-sm sm:text-base" style="color:var(--text);">Comunicação expressiva</p>
-        </div>
-
-        <div class="benefit-card rounded-xl p-4 sm:p-5 flex items-center gap-3.5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-          </div>
-          <p class="font-semibold text-sm sm:text-base" style="color:var(--text);">Relacionamentos harmoniosos</p>
-        </div>
-
-        <div class="benefit-card rounded-xl p-4 sm:p-5 flex items-center gap-3.5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <p class="font-semibold text-sm sm:text-base" style="color:var(--text);">Disciplina e produtividade</p>
-        </div>
-
-        <div class="benefit-card rounded-xl p-4 sm:p-5 flex items-center gap-3.5" style="background:var(--card);border:1px solid var(--border);">
-          <div style="width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
-          </div>
-          <p class="font-semibold text-sm sm:text-base" style="color:var(--text);">Criatividade e expansão</p>
-        </div>
-
-      </div>
-      <p class="text-center mt-5 text-sm sm:text-base" style="color:var(--muted);">Ou outro objetivo importante para você</p>
-    </div>
-
-    <!-- Divider -->
-    <div class="divider-ornament mb-12 sm:mb-14">
-      <span style="font-size:10px;">✦ ✦ ✦</span>
-    </div>
-
-    <!-- HOW IT WORKS -->
-    <div class="reveal mb-12 sm:mb-16">
-      <h2 class="title-font text-2xl sm:text-4xl font-bold mb-2 text-center" style="color:var(--text);">Como funciona?</h2>
-      <div class="divider-ornament mb-8 mt-3">
-        <span style="font-size:10px;">✦</span>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
-        
-        <div class="rounded-xl p-5 sm:p-6 text-center" style="background:var(--card);border:1px solid var(--border);">
-          <div class="title-font mb-2" style="font-size:42px;color:var(--accent);font-weight:700;line-height:1;">01</div>
-          <p class="font-bold text-base sm:text-lg mb-2" style="color:var(--text);">Confirmação</p>
-          <p class="text-sm sm:text-base" style="color:var(--muted);line-height:1.65;">Você preenche seus dados abaixo e confirma para podermos personalizar seu direcionamento.</p>
-        </div>
-
-        <div class="rounded-xl p-5 sm:p-6 text-center" style="background:var(--card);border:1px solid var(--border);">
-          <div class="title-font mb-2" style="font-size:42px;color:var(--accent2);font-weight:700;line-height:1;">02</div>
-          <p class="font-bold text-base sm:text-lg mb-2" style="color:var(--text);">Preparo personalizado</p>
-          <p class="text-sm sm:text-base" style="color:var(--muted);line-height:1.65;">A partir dessas informações, preparo seu direcionamento com a combinação ideal de arquétipos.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Divider -->
-    <div class="divider-ornament mb-12 sm:mb-14">
-      <span style="font-size:10px;">✦ ✦ ✦</span>
-    </div>
-
-    <!-- IMAGEM COMBO PNG -->
-    <div class="reveal mb-12 sm:mb-16 text-center max-w-3xl mx-auto px-2">
-      <img src="combo.jpeg" 
-           alt="Combo Arquetípico - O que você recebe" 
-           style="width:100%;height:auto;border-radius:12px;box-shadow:0 15px 45px rgba(0,0,0,0.18);" 
-           loading="lazy">
-    </div>
-
-    <!-- FORMULÁRIO + FINAL CTA SECTION -->
-    <div id="formulario-dados" class="reveal text-center my-12 sm:my-16 max-w-xl mx-auto px-2">
-      <div class="mb-6">
-        <p class="title-font text-3xl sm:text-4xl font-bold mb-2" style="color:var(--text);">Pronta para ativar a sua melhor versão?</p>
-        <p class="text-sm sm:text-base mb-2" style="color:var(--muted);">Preencha os dados abaixo para o seu combo personalizado:</p>
-      </div>
-
-      <!-- FORMULÁRIO DE CAPTURA COM ENVIO AUTOMÁTICO -->
-      <form id="comboForm" action="https://api.web3forms.com/submit" method="POST" class="text-left rounded-2xl p-6 sm:p-8 mb-6" style="background:var(--card);border:1px solid var(--accent);box-shadow:0 10px 30px rgba(184,134,74,.08);">
-        
-        <!-- Chave Web3Forms configurada -->
-        <input type="hidden" name="access_key" value="376491cc-5203-40bf-af8e-da68f6b19645">
-        
-        <!-- Assunto do e-mail que você vai receber -->
-        <input type="hidden" name="subject" value="Novo Pedido - Combo Arquetípico">
-
-        <div class="mb-4">
-          <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Nome Completo *</label>
-          <input type="text" name="Nome Completo" required placeholder="Digite seu nome completo" class="form-input">
-        </div>
-
-        <!-- CAMPOS: WHATSAPP E E-MAIL -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">WhatsApp (com DDD) *</label>
-            <input type="tel" name="WhatsApp" required placeholder="(00) 00000-0000" class="form-input">
-          </div>
-          <div>
-            <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">E-mail *</label>
-            <input type="email" name="E-mail" required placeholder="seu@email.com" class="form-input">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Data de Nascimento *</label>
-            <input type="text" name="Data de Nascimento" required placeholder="DD/MM/AAAA" class="form-input">
-          </div>
-          <div>
-            <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Horário de Nascimento</label>
-            <input type="text" name="Horário de Nascimento" placeholder="Ex: 14:30 (se souber)" class="form-input">
-          </div>
-        </div>
-
-        <!-- CAMPO: CIDADE DE NASCIMENTO -->
-        <div class="mb-4">
-          <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Cidade de Nascimento *</label>
-          <input type="text" name="Cidade de Nascimento" required placeholder="Digite a cidade e estado onde nasceu" class="form-input">
-        </div>
-
-        <div class="mb-6">
-          <label class="block text-sm font-bold mb-1.5" style="color:var(--text);">Qual o seu principal objetivo atual? *</label>
-          <textarea name="Objetivo" required rows="3" placeholder="Ex: Aumentar minhas vendas, ter mais autoconfiança no trabalho..." class="form-input"></textarea>
-        </div>
-
-        <!-- BLOCO DE PREÇO FORMULÁRIO (RETO E TOTALMENTE ALINHADO) -->
-        <div class="text-center mb-6">
-          <p class="text-xs sm:text-sm font-semibold" style="color:var(--muted);">Garanta seu Combo Arquetípico Personalizado agora por apenas</p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mt-2">
-            <span class="body-font text-3xl sm:text-4xl font-extrabold" style="color:var(--accent);font-style:normal;">R$ 78,90</span>
-            <span class="text-sm sm:text-base font-bold" style="color:var(--text);">ou 12x de R$ 8,16</span>
-          </div>
-        </div>
-
-        <button type="submit" id="submitBtn" class="cta-btn w-full text-center py-4 px-6 rounded-lg font-bold text-base tracking-wide">
-          CONFIRMAR E IR PARA O PAGAMENTO
-        </button>
-        
-        <p class="text-xs text-center mt-3" style="color:var(--muted);">🔒 Seus dados estão seguros. Ao clicar, você será redirecionado para o checkout seguro.</p>
-      </form>
-
-    </div>
-
-  </div>
-
-  <!-- SCRIPT PARA GARANTIR ENVIO DOS DADOS E REDIRECIONAMENTO IMEDIATO -->
-  <script>
-    document.getElementById('comboForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const btn = document.getElementById('submitBtn');
-      btn.innerText = 'PROCESSANDO... AGUARDE';
-      btn.style.opacity = '0.7';
-      btn.disabled = true;
-
-      const formData = new FormData(this);
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      })
-      .then(function() {
-        window.location.href = 'https://pay.kiwify.com.br/oStCXUc';
-      })
-      .catch(function(err) {
-        window.location.href = 'https://pay.kiwify.com.br/oStCXUc';
-      });
-    });
-  </script>
-
+  <footer>
+    <div class="footer-title">Vida Arquetípica</div>
+    <p>Combo Arquetípico Personalizado · © 2026 Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
